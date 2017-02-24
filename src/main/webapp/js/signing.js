@@ -19,7 +19,7 @@ var postControllerAngular; // = angular.element($('#BlogPostController-Div')).sc
 //Dev settings
 var infiniteScroll = true;
 var currentOffset = 1;
-var debugMode = true;
+var debugMode = false;
 var loadMoreContents = true;
 
 
@@ -78,10 +78,10 @@ $(document).ready(function () {
         function () {
             newPost();
         });
-//    $('#newChat-submit-button').click(
-         //        function () {
-         //            newChat();
-         //        });
+    //    $('#newChat-submit-button').click(
+    //        function () {
+    //            newChat();
+    //        });
     $('#search-button').click(
         function () {
             searchAllPosts();
@@ -96,7 +96,7 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
 
-    console.log("Data from localStorage", localStorage.getItem("userId"));
+    //    console.log("Data from localStorage", localStorage.getItem("userId"));
     hideAllForms();
     if (localStorage.getItem("userId") !== null && localStorage.getItem("token")) {
         validateSession();
@@ -149,7 +149,7 @@ function addUser() {
 };
 
 function getUserIds() {
-    console.log("receiving user ids");
+    //    console.log("receiving user ids");
     $.ajax({
         url: baseURL + '/user/ids',
         type: 'get',
@@ -162,7 +162,7 @@ function getUserIds() {
                     response);
             userIdsResponse = response;
             userIdsResponseReceived = true;
-            console.log("Rsp 1" + response);
+            //            console.log("Rsp 1" + response);
             $("#result-div").show();
             return response;
         }
@@ -191,7 +191,7 @@ function authenticate(userId, password) {
         global: false,
         success: function (response) {
             //$("#viewForm").hide();
-            console.log("Valid user");
+            //            console.log("Valid user");
             //<img id='current-user-icon' src='img/48px-User_icon_2.svg.png'/> 
             //$("#current-user-icon").css("filter", "none");
             loadMainPage(response);
@@ -219,7 +219,7 @@ function validateSession() {
         },
         success: function (response) {
             //$("#viewForm").hide();
-            console.log("user logged in already");
+            //            console.log("user logged in already");
             //<img id='current-user-icon' src='img/48px-User_icon_2.svg.png'/> 
             //$("#current-user-icon").css("filter", "none");
             loadMainPage(response);
@@ -297,7 +297,7 @@ function validateUser(value) {
     if (userIdsResponseReceived) {
         for (i = 0; i < userIdsResponse.length; i++)
             if (userIdsResponse[i].toLocaleLowerCase() === value.trim().toLocaleLowerCase()) {
-                console.log("UserId Exists " + value);
+                //                console.log("UserId Exists " + value);
                 $("#validUser").html("User ID " + value + " not available");
                 $("#validUser").css({
                     'color': 'red',
@@ -340,7 +340,7 @@ function loadMainPage(response) {
     $("#user-button").html("<span class='glyphicon glyphicon-user' > </span>" + response.name);
     localStorage.setItem("userId", response.userId);
     localStorage.setItem("token", response.token);
-    console.log("user id assigned" + currentUserId + "complete response " + response);
+    //    console.log("user id assigned" + currentUserId + "complete response " + response);
     $("#LoginForm").hide();
     $("#NotLogged").hide();
     $("#LoggedInForm").show();
@@ -359,14 +359,15 @@ function loadMainPage(response) {
 
 
 function loadContents() {
-    retrieveFavourites();
     retrieveCategory();
     if (infiniteScroll) {
         readLimitedPosts();
     } else {
         readAllPosts();
     }
-
+    if (currentUserId != "") {
+        retrieveFavourites();
+    }
     window.setInterval(function () {
         //readChats();
     }, 3000);
@@ -405,7 +406,7 @@ function skipLogin() {
     $("#user-div").html("<br>User : debugger<p><i> A quick way to debug");
     $("#user-div").append("<a href='" + url + "'>Sign out</a>");
     currentUserId = "u";
-    console.log("user id assigned" + currentUserId);
+    //    console.log("user id assigned" + currentUserId);
     $("#loginPage").hide();
     $("#mainPage").show().fadeIn(50000);
     $("#mainPage").fadeIn(5000);
@@ -415,12 +416,12 @@ function skipLogin() {
 
 function allowDrop(ev) {
     ev.preventDefault();
-    console.log("Allowdrop ID " + ev.target.id);
+    //    console.log("Allowdrop ID " + ev.target.id);
 }
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-    console.log("Event Target ID " + ev.target.id);
+    //    console.log("Event Target ID " + ev.target.id);
 }
 
 function drop(ev) {
