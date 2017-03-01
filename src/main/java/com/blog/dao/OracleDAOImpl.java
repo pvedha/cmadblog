@@ -22,7 +22,7 @@ import com.blog.dto.UserDto;
 
 @SuppressWarnings("unchecked")
 public class OracleDAOImpl implements DAO {
-	EntityManagerFactory factory = Persistence.createEntityManagerFactory("blog");
+	static EntityManagerFactory factory = Persistence.createEntityManagerFactory("blog");
 
 	@Override
 	public int initDB() {
