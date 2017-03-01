@@ -17,21 +17,21 @@
 <!--             <property name="javax.persistence.jdbc.password" value="cmad"/> -->
 <!-- 			<property name="hibernate.hbm2ddl.auto" value="validate" /> -->
 
- 
+ <!-- 
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" /> 
 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:pvedha" />
 			<property name="javax.persistence.jdbc.user" value="cmad"/>
             <property name="javax.persistence.jdbc.password" value="cmad"/>
 			<property name="hibernate.hbm2ddl.auto" value="validate" /> 
-<!-- 			  -->
+			  -->
 			  
 <!-- 			oracle from AWS -->
 
-<!-- 		 	<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" /> -->
-<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@cmad.cbxi21uehmd8.us-west-2.rds.amazonaws.com:1521:ORCL" /> -->
-<!-- 			<property name="javax.persistence.jdbc.user" value="cmad"/> -->
-<!--             <property name="javax.persistence.jdbc.password" value="cmadcmad"/> -->
-<!-- 			<property name="hibernate.hbm2ddl.auto" value="validate" /> -->
+	 	<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" /> 
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@cmad.cbxi21uehmd8.us-west-2.rds.amazonaws.com:1521:ORCL" />
+			<property name="javax.persistence.jdbc.user" value="cmad"/>
+            <property name="javax.persistence.jdbc.password" value="cmadcmad"/>
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
 		
 <!-- 			 -->
 			 
