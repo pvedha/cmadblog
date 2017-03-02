@@ -4,26 +4,16 @@ import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.HttpMethod;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
-import com.blog.api.BlogUser;
-import com.blog.api.Comments;
-import com.blog.api.Post;
-import com.blog.api.Exceptions.DuplicateUserException;
 import com.blog.api.Exceptions.InvalidCommentException;
 import com.blog.api.Exceptions.InvalidSearchKeyException;
-import com.blog.api.Exceptions.InvalidUserException;
 import com.blog.biz.Blog;
-import com.blog.dto.ChatsDto;
-import com.blog.dto.NewChat;
 import com.blog.dto.NewComment;
 import com.blog.dto.NewPost;
 import com.blog.dto.PostDto;

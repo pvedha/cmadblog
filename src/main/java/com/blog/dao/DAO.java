@@ -6,7 +6,6 @@ import com.blog.api.BlogUser;
 import com.blog.api.Chats;
 import com.blog.api.Comments;
 import com.blog.api.Post;
-import com.blog.dto.ChatsDto;
 import com.blog.dto.NewChat;
 import com.blog.dto.NewComment;
 import com.blog.dto.NewPost;
