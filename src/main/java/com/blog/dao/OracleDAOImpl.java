@@ -188,11 +188,9 @@ public class OracleDAOImpl implements DAO {
 	public BlogUser validateLogin(String userId, String password) {
 
 		EntityManager em = factory.createEntityManager();
-		String validateQuery = "select * from bloguser where " + " userid = '" + userId + "' and password = '"
-				+ password + "'";
-		// System.out.println("The query is : " + validateQuery);
+		String validateQuery = "select * from bloguser where  userid = :userId and password = :password";
 		ArrayList<BlogUser> blogUsers = (ArrayList<BlogUser>) em.createNativeQuery(validateQuery, BlogUser.class)
-				.getResultList();
+				.setParameter("userId", userId).setParameter("password", password).getResultList();
 		em.close();
 		if (blogUsers.size() == 1) {
 			return blogUsers.get(0);
