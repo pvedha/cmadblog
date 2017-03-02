@@ -197,7 +197,7 @@ function authenticate(userId, password) {
             loadMainPage(response);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Invalid user credentials");
+            log("Invalid user credentials");
             $("#loginMessage").html("Invalid crendentials, please try again");
             //$("#login-message").css({ 'color': 'green', 'font-size': '100%' });
         }
@@ -226,7 +226,7 @@ function validateSession() {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Invalid user credentials");
+            log("Invalid user credentials");
             //$("#loginMessage").html("Invalid crendentials, please try again");
             //$("#login-message").css({ 'color': 'green', 'font-size': '100%' });
             showLoginPage();

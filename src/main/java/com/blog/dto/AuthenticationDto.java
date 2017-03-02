@@ -4,6 +4,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import com.blog.logger.Logger;
+
 public class AuthenticationDto {
 
 	private String userId;
@@ -27,8 +29,7 @@ public class AuthenticationDto {
 			}
 			return hashtext;
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.log(e.getMessage());
 			return null;
 		}
 		

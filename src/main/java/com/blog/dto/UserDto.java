@@ -2,12 +2,12 @@ package com.blog.dto;
 
 public class UserDto {
 
-	public String userId;
-	public String userName;
-	public String emailId;
-	public String password;
-	public String newPassword;
-	public String about;
+	private String userId;
+	private String userName;
+	private String emailId;
+	private String password;
+	private String newPassword;
+	private String about;
 
 	public UserDto() {
 		// TODO Auto-generated constructor stub

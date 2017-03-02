@@ -154,7 +154,7 @@ function readChats() {
             //window.setTimeout(update, 10000);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Error reading the chats");
+            log("Error reading the chats");
             //$("#post-info").html("Error Loading the posts, please try again");
             // $("#login-message").css({ 'color': 'green', 'font-size': '100%'
             // });
@@ -205,7 +205,7 @@ function readAllPosts() {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Error Loading the posts read");
+            log("Error Loading the posts read");
             $("#post-info").html("Error Loading the posts, please try again");
             // $("#login-message").css({ 'color': 'green', 'font-size': '100%'
             // });
@@ -266,7 +266,7 @@ function readLimitedPosts() {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Error Loading the posts read");
+            log("Error Loading the posts read");
             $("#post-info").html("Error Loading the posts, please try again");
             // $("#login-message").css({ 'color': 'green', 'font-size': '100%'
             // });
@@ -380,36 +380,6 @@ function viewPost(postId) {
     loadSelectedPost(currentPost);
 }
 
-
-
-//function viewPostByTitle(postTitle) {
-//
-//    console.log("View post by title " + postTitle);
-//	if (readPostResponse.length === 0) {
-//		console.log("Couldnt display the selected post");
-//		$("#view-post-info").html("Couldnt display the selected post");
-//		$("#view-post-info").css({
-//			'color' : 'green',
-//			'font-size' : '100%'
-//		});
-//		return;
-//	}
-//	
-//    console.log("end view post by title " + postTitle);
-//    
-//	for (i = 0; i < readPostResponse.length; i++) {
-//		if (postTitle === readPostResponse[i].title) {
-//			currentPost = readPostResponse[i];
-//			break;
-//		}
-//	}   
-//	
-//	loadSelectedPost(currentPost);
-//    console.log("end view post by title " + postTitle);
-//}
-
-
-
 function loadSelectedPost(currentPost) {
     currentPostId = currentPost.postId;
     $("#view-post-title").html(currentPost.title);
@@ -442,8 +412,6 @@ function loadSelectedPost(currentPost) {
         htmlContent += "<hr style='height:0.5px; margin: 10px 0 10px 0' color=white ><p class='post-message'>" + comment.message + "</p>";
 
         htmlContent += "<p class='post-detail'>By : <b>" + comment.userId + "</b> ,<span>   </span> On : " + comment.postedOn + "</p>";
-        // htmlContent += "<hr style='height:0.5px; margin: 10px 0 10px 0'
-        // color=white >"
     }
     $("#view-post-comments-div").html(htmlContent);
     showViewPostView();
@@ -484,7 +452,7 @@ function removeFavourite(postId) {
             retrieveFavourites();
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Error adding to favourites");
+            log("Error adding to favourites");
             $("#add-favourite-div").html(
                 "<p class='quicklink-title'>Error : </p><a href='#' onClick=removeFavourite(" + postId + ")> Try again </a>");
         },
@@ -547,7 +515,7 @@ function retrieveCategory() {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Error Loading categories");
+            log("Error Loading categories");
             $("#category-links").html("Error Loading categories");
         }
     })
@@ -591,7 +559,7 @@ function retrieveFavourites() {
             //            console.log("added items");
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Error Loading favourites");
+            log("Error Loading favourites");
             $("#favourite-links").html("No favourite posts");
         }
     })
