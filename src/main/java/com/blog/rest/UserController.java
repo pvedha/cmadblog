@@ -24,10 +24,8 @@ import com.blog.dto.UserDto;
 public class UserController {
 
 	public UserController() {
-		// TODO Auto-generated constructor stub
 	}
 
-	// remove/hide this - reveals all.
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/all")
@@ -107,7 +105,6 @@ public class UserController {
 	@Path("/validate")
 	public Response validateSession(@HeaderParam("userId") String userId, @HeaderParam("token") String token) {
 		Blog blog = new Blog();
-		//System.out.println("User ID :" + userId + " Token : " + token);
 		AuthenticationDto response = blog.validateSession(userId, token);
 		if (response == null) {
 			return Response.status(Status.FORBIDDEN).build();

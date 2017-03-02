@@ -24,16 +24,17 @@ import com.blog.dto.NewComment;
 import com.blog.dto.NewPost;
 import com.blog.dto.PostDto;
 import com.blog.dto.UserDto;
+import com.blog.logger.Logger;
 
 public class Blog implements BlogInterface {
 	private DAO dao;// = new OracleDAOImpl();
-
+	
 	public Blog() {
 		try {
-			//System.out.println("Initializing for OracleDAO");
+			Logger.log("Initializing for OracleDAO");
 			dao = new OracleDAOImpl();
 		} catch (Exception e){
-			//System.out.println("No class found most likely " + e.getMessage());
+			Logger.log("No class found most likely " + e.getMessage());
 		}
 	}
 
@@ -189,7 +190,7 @@ public class Blog implements BlogInterface {
 		if(!validateToken(userId, token)){
 			return null;
 		}
-		//System.out.println("proceeding to get the user details");
+		Logger.log("proceeding to get the user details");
 		AuthenticationDto response = new AuthenticationDto();		
 		BlogUser user = dao.getUser(userId);
 		response.setToken(token); //we can regenerate with time
@@ -200,7 +201,6 @@ public class Blog implements BlogInterface {
 	}
 	
 	private AuthenticationDto makeAuthDto(BlogUser user) {
-		// TODO Auto-generated method stub		
 		return (new AuthenticationDto(user.getUserid(), 
 				user.getName(), user.getAbout()));
 	}
@@ -242,7 +242,7 @@ public class Blog implements BlogInterface {
 		post.setTags(newPost.getTags());
 		post.setCategory(newPost.getCategory());
 		post.setCreatedOn(new Timestamp(System.currentTimeMillis()));
-		//System.out.println("CreatePostPersist");
+		Logger.log("CreatePostPersist");
 		return dao.postCreate(post);
 	}
 

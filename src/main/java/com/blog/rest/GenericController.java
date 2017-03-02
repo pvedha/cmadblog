@@ -20,7 +20,6 @@ import com.blog.dto.NewChat;
 public class GenericController {
 
 	public GenericController() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@GET

@@ -32,7 +32,6 @@ import com.blog.dto.PostDto;
 public class PostController {
 
 	public PostController() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@GET
@@ -79,7 +78,6 @@ public class PostController {
 		try{
 			posts = blog.searchByCategory(category);
 		} catch (Exception e){
-			//System.out.println("Exception caught in search by category " + e.getMessage());			
 		}	
 		return Response.ok().entity(posts).build();
 	}
@@ -111,21 +109,5 @@ public class PostController {
 		int number = blog.addComment(comment);
 		return Response.ok().entity(Integer.toString(number)).build();
 	}
-	
-	
-	
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Path("/getChats")
-//	//@HeaderParam({"token"})
-//	public Response getChats(@HeaderParam("token") String token, @HeaderParam("userId") String userId) {		
-//		Blog blog = new Blog();
-//		if(!blog.validateToken(userId, token)){
-//			return Response.status(Status.FORBIDDEN).build();
-//		}
-//		ArrayList<ChatsDto> posts = blog.readRecentChats();
-//		return Response.ok().entity(posts).build();
-//	}
-	
 	
 }
