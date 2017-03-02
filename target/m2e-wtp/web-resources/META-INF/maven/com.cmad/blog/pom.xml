@@ -16,17 +16,17 @@
 		<jersey.version>2.22.2</jersey.version>
 	</properties>
 	<repositories>
-		<repository>
-	        <releases>
-	                <enabled>true</enabled>
-	                <updatePolicy>always</updatePolicy>
-	                <checksumPolicy>warn</checksumPolicy>
-	        </releases>
-	        <id>allanbank</id>
-	        <name>Allanbank Releases</name>
-	        <url>http://www.allanbank.com/repo/</url>
-	        <layout>default</layout>
-		</repository>
+<!-- 		<repository> -->
+<!-- 	        <releases> -->
+<!-- 	                <enabled>true</enabled> -->
+<!-- 	                <updatePolicy>always</updatePolicy> -->
+<!-- 	                <checksumPolicy>warn</checksumPolicy> -->
+<!-- 	        </releases> -->
+<!-- 	        <id>allanbank</id> -->
+<!-- 	        <name>Allanbank Releases</name> -->
+<!-- 	        <url>http://www.allanbank.com/repo/</url> -->
+<!-- 	        <layout>default</layout> -->
+<!-- 		</repository> -->
 	</repositories>
 	<dependencies>
 	<dependency>

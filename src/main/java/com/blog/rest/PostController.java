@@ -79,7 +79,7 @@ public class PostController {
 		try{
 			posts = blog.searchByCategory(category);
 		} catch (Exception e){
-			System.out.println("Exception caught in search by category " + e.getMessage());			
+			//System.out.println("Exception caught in search by category " + e.getMessage());			
 		}	
 		return Response.ok().entity(posts).build();
 	}
@@ -91,7 +91,7 @@ public class PostController {
 	public Response makePost(NewPost post) {
 		Blog blog = new Blog();
 		int number = blog.createPostPersist(post);
-		return Response.ok().entity(number + "").build();
+		return Response.ok().entity(Integer.toString(number)).build();
 	}	
 	
 	@POST
@@ -100,7 +100,7 @@ public class PostController {
 	public Response newPost(NewPost newPost) {
 		Blog blog = new Blog();
 		int number = blog.createPost(newPost);
-		return Response.ok().entity(number + "").build();
+		return Response.ok().entity(Integer.toString(number)).build();
 	}
 	
 	@POST
@@ -109,7 +109,7 @@ public class PostController {
 	public Response addComment(NewComment comment) throws InvalidCommentException {
 		Blog blog = new Blog();
 		int number = blog.addComment(comment);
-		return Response.ok().entity(number + "").build();
+		return Response.ok().entity(Integer.toString(number)).build();
 	}
 	
 	

@@ -61,7 +61,7 @@ public class UserController {
 	public Response updateUser(UserDto user) {
 		Blog blog = new Blog();
 		boolean result = blog.updateUser(user);
-		return Response.ok().entity(result + "").build();
+		return Response.ok().entity(Boolean.toString(result)).build();
 	}
 
 	@GET
@@ -84,7 +84,7 @@ public class UserController {
 		Blog blog = new Blog();
 		try {
 			int number = blog.createUser(user);
-			return Response.ok().entity(number + "").build();
+			return Response.ok().entity(Integer.toString(number)).build();
 		} catch (Exception e) {
 			return Response.status(Status.CONFLICT).entity("Invalid User Details").build();
 		}
@@ -99,7 +99,7 @@ public class UserController {
 		Blog blog = new Blog();
 		BlogUser user = new BlogUser(userId, name, password, about);
 		int number = blog.createUser(user);
-		return Response.ok().entity(number + "").build();
+		return Response.ok().entity(Integer.toString(number)).build();
 	}
 
 	@GET
@@ -107,7 +107,7 @@ public class UserController {
 	@Path("/validate")
 	public Response validateSession(@HeaderParam("userId") String userId, @HeaderParam("token") String token) {
 		Blog blog = new Blog();
-		System.out.println("User ID :" + userId + " Token : " + token);
+		//System.out.println("User ID :" + userId + " Token : " + token);
 		AuthenticationDto response = blog.validateSession(userId, token);
 		if (response == null) {
 			return Response.status(Status.FORBIDDEN).build();

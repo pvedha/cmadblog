@@ -42,13 +42,13 @@ public class OracleDAOImpl implements DAO {
 		em.createNativeQuery(chatQuery).executeUpdate();
 		em.getTransaction().commit();
 		em.close();
-		System.out.println("Init success");
+		//System.out.println("Init success");
 		return 0;
 	}
 
 	@Override
 	public int postCreate(Post post) {
-		System.out.println("Creating post in DAO");
+		//System.out.println("Creating post in DAO");
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 		BlogUser user = em.find(BlogUser.class, post.getPostedBy().getUserid());
@@ -56,7 +56,7 @@ public class OracleDAOImpl implements DAO {
 		post.setPostedBy(user);
 		em.persist(post);
 		em.getTransaction().commit();
-		System.out.println("committed");
+		//System.out.println("committed");
 		em.close();
 		return post.getPostId();
 	}
@@ -204,8 +204,8 @@ public class OracleDAOImpl implements DAO {
 	public int getNextPostId() {
 		EntityManager em = factory.createEntityManager();
 		Object postId = em.createNativeQuery("select max(post_id)+1 from post").getSingleResult();
-		System.out.println("Object to string " + postId.toString());
-		System.out.println("The next post id is " + postId);
+		//System.out.println("Object to string " + postId.toString());
+		//System.out.println("The next post id is " + postId);
 		return 5;
 	}
 
@@ -251,7 +251,7 @@ public class OracleDAOImpl implements DAO {
 			}
 		}
 
-		System.out.println("The query is " + query);
+		//System.out.println("The query is " + query);
 		ArrayList<Post> posts = (ArrayList<Post>) em.createNativeQuery(query, Post.class).getResultList();
 
 		em.close();
@@ -273,20 +273,20 @@ public class OracleDAOImpl implements DAO {
 	@Override
 	public ArrayList<Post> searchByCategory(String category) {
 		EntityManager em = factory.createEntityManager();
-		System.out.println("Search by category 1 " + category);
+		//System.out.println("Search by category 1 " + category);
 		try {
 			ArrayList<Post> posts = (ArrayList<Post>) em
 					.createNativeQuery("select * from post where category = :cat", Post.class)
 					.setParameter("cat", category).getResultList();
 			return posts;
 		} catch (SQLGrammarException sqlE) {
-			System.out.println("Caught SQL Grammer exception");
+			//System.out.println("Caught SQL Grammer exception");
 			return new ArrayList<Post>();
 		} catch (javax.persistence.PersistenceException sqlP) {
-			System.out.println("Caught SQL Grammer exception");
+			//System.out.println("Caught SQL Grammer exception");
 			return new ArrayList<Post>();
 		} catch (Exception e) {
-			System.out.println("Exception for empty list ");
+			//System.out.println("Exception for empty list ");
 			return new ArrayList<Post>();
 		}
 	}

@@ -54,7 +54,7 @@ public class GenericController {
 	public Response addFavourite(@PathParam("userId") String userId, @PathParam("postId") int postId) {
 		Blog blog = new Blog();
 		boolean result = blog.addFavourite(userId, postId);
-		return Response.ok().entity(result + "").build();
+		return Response.ok().entity(Boolean.toString(result)).build();
 	}
 	
 	@POST
@@ -63,7 +63,7 @@ public class GenericController {
 	public Response removeFavourite(@PathParam("userId") String userId, @PathParam("postId") int postId) {
 		Blog blog = new Blog();
 		boolean result = blog.removeFavourite(userId, postId);
-		return Response.ok().entity(result + "").build();
+		return Response.ok().entity(Boolean.toString(result)).build();
 	}
 	
 	@GET
@@ -81,7 +81,7 @@ public class GenericController {
 	public Response newChat(NewChat chat) throws InvalidCommentException {
 		Blog blog = new Blog();
 		int number = blog.addChat(chat);
-		return Response.ok().entity(number + "").build();
+		return Response.ok().entity(Integer.toString(number)).build();
 	}
 	
 	@POST
@@ -90,6 +90,6 @@ public class GenericController {
 	public Response initDB() {
 		Blog blog = new Blog();
 		int number = blog.initDB();
-		return Response.ok().entity(number + "").build();
+		return Response.ok().entity(Integer.toString(number)).build();
 	}
 }
