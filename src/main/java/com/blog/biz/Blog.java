@@ -117,14 +117,11 @@ public class Blog implements BlogInterface {
 
 	@Override
 	public int createPost(Post post) {
-		// post.setCreatedOn(new
-		// SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()));
-
 		return dao.postCreate(post);
 	}
 
 	@Override
-	public int createUser(BlogUser user) throws InvalidUserException, DuplicateUserException {
+	public int createUser(BlogUser user) {
 		if (user == null || user.getUserid() == null || user.getName() == null || user.getPassword() == null) {
 			throw new InvalidUserException();
 		}
@@ -151,7 +148,7 @@ public class Blog implements BlogInterface {
 	}
 	
 	@Override
-	public int addComment(NewComment comment) throws InvalidCommentException {
+	public int addComment(NewComment comment) {
 		if (comment == null || comment.getPostId() == 0 || comment.getMessage() == null
 				|| this.readPost(comment.getPostId()) == null) {
 			throw new InvalidCommentException();
@@ -159,7 +156,7 @@ public class Blog implements BlogInterface {
 		return dao.commentAdd(comment);
 	}
 
-	public ArrayList<Comments> readCommentsOfPost(int postId) throws InvalidPostException {
+	public ArrayList<Comments> readCommentsOfPost(int postId) {
 		if (this.readPost(postId) == null) {
 			throw new InvalidPostException();
 		}
@@ -180,13 +177,13 @@ public class Blog implements BlogInterface {
 	public AuthenticationDto validateLogin(String userId, String password) {
 		BlogUser user = dao.validateLogin(userId, password);
 		AuthenticationDto token = null;
-		if (user != null) token = this.makeAuthDto(user);
+		if (user != null) 
+			token = this.makeAuthDto(user);
 		return token;
 	}
 
 	@Override
-	public AuthenticationDto validateSession(String userId, String token) {
-		//BlogUser user = dao.validateLogin(userId, password);
+	public AuthenticationDto validateSession(String userId, String token) {		
 		if(!validateToken(userId, token)){
 			return null;
 		}
@@ -223,7 +220,7 @@ public class Blog implements BlogInterface {
 		return dao.postCreate(newPost);
 	}
 	
-	public ArrayList<PostDto> searchPost(String keys) throws InvalidSearchKeyException {
+	public ArrayList<PostDto> searchPost(String keys) {
 		if (keys == null || keys.trim().isEmpty()) 
 			throw new InvalidSearchKeyException();
 		ArrayList<String> keyList = new ArrayList<>(Arrays.asList(keys.split("\\s")));
@@ -234,8 +231,7 @@ public class Blog implements BlogInterface {
 	
 	@Override //not working, trying to insert bloguser first
 	public int createPostPersist(NewPost newPost) {
-		Post post = new Post();
-		//post.setPostId(dao.getNextPostId());
+		Post post = new Post();		
 		post.setPostedBy(dao.getUser(newPost.getUserId()));
 		post.setTitle(newPost.getTitle());
 		post.setMessage(newPost.getMessage());
@@ -295,7 +291,7 @@ public class Blog implements BlogInterface {
 		return chatDto;
 	}
 	
-	public int addChat(NewChat chat) throws InvalidCommentException {
+	public int addChat(NewChat chat) {
 		if (chat == null ||  chat.getMessage() == null) {
 			throw new InvalidCommentException();
 		}
