@@ -29,7 +29,7 @@ public class Post {
 	// Need to add comment array - dont. 
 
 	public Post() {
-
+		// nothing to do. needed for entity
 	}
 
 	public Post(int postId, String title, String message, BlogUser postedBy, Timestamp createdOn, String tags,

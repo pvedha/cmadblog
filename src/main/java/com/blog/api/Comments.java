@@ -67,7 +67,7 @@ public class Comments {
 	}
 
 	public Comments() {
-		
+		// nothing to do. needed for entity
 	}
 
 	public Comments(int comment_Id, int post_Id, String message, BlogUser postedBy, Timestamp posted_on) {

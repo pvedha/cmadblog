@@ -10,7 +10,7 @@ public class Category {
 	private String category;
 	
 	public Category() {
-		// TODO Auto-generated constructor stub
+		// nothing to do. needed for entity
 	}
 
 	public String getCategory() {

@@ -26,7 +26,7 @@ public class BlogUser {
 	}
 	
 	public BlogUser(){
-		
+		//this is for entity bean
 	}
 	
 	public String getUserid() {

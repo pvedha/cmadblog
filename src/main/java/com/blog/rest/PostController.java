@@ -17,6 +17,7 @@ import com.blog.biz.Blog;
 import com.blog.dto.NewComment;
 import com.blog.dto.NewPost;
 import com.blog.dto.PostDto;
+import com.blog.logger.Logger;
 
 @Path("/post")
 public class PostController {
@@ -65,6 +66,7 @@ public class PostController {
 		try{
 			posts = blog.searchByCategory(category);
 		} catch (Exception e){
+			Logger.log(e.getMessage());
 		}	
 		return Response.ok().entity(posts).build();
 	}

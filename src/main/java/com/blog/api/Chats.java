@@ -24,8 +24,7 @@ public class Chats {
 	}
 
 	public Chats() {
-		super();
-		// TODO Auto-generated constructor stub
+		super();		
 	}
 
 	public int getChats_id() {
