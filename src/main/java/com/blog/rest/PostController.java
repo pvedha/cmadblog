@@ -31,9 +31,6 @@ import com.blog.dto.PostDto;
 @Path("/post")
 public class PostController {
 
-	public PostController() {
-	}
-	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/all")

@@ -14,6 +14,7 @@ public class Favourite {
 	private int postId;
 	
 	public Favourite() {
+		//Needed for bean
 	}
 
 	public Favourite(String userId, int postId) {

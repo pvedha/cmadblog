@@ -23,9 +23,6 @@ import com.blog.dto.UserDto;
 @Path("/user")
 public class UserController {
 
-	public UserController() {
-	}
-
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/all")

@@ -10,6 +10,7 @@ public class FavouriteKey implements Serializable{
 	private String userId;
 	private int postId;
 	public FavouriteKey() {		
+		//Needed for bean
 	}
 	public FavouriteKey(String userId, int postId) {
 		this.userId = userId;

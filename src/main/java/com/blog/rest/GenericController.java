@@ -19,9 +19,6 @@ import com.blog.dto.NewChat;
 @Path("/")
 public class GenericController {
 
-	public GenericController() {
-	}
-	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/version")
