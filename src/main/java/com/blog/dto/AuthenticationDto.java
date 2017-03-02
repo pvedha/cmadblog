@@ -76,8 +76,7 @@ public class AuthenticationDto {
 	}
 
 	public AuthenticationDto() {
-		// TODO Auto-generated constructor stub
-		
+		// do nothing, needed for bean		
 	}
 
 }

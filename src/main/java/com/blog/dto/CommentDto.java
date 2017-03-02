@@ -10,7 +10,7 @@ public class CommentDto {
 	
 	
 	public CommentDto() {
-		// TODO Auto-generated constructor stub
+		// do nothing, needed for bean
 	}
 
 

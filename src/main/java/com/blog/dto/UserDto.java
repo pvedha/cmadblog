@@ -10,7 +10,7 @@ public class UserDto {
 	private String about;
 
 	public UserDto() {
-		// TODO Auto-generated constructor stub
+		// do nothing, needed for bean
 	}
 
 	public String getUserId() {

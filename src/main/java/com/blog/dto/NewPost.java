@@ -9,7 +9,7 @@ public class NewPost {
 	private String category;
 	
 	public NewPost() {
-		// TODO Auto-generated constructor stub
+		// do nothing, needed for bean
 	}
 
 	public String getUserId() {

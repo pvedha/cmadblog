@@ -14,7 +14,6 @@ public class ChatsDto {
 	
 	public ChatsDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getPostedBy() {

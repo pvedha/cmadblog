@@ -11,7 +11,7 @@ public class FavouriteEmbeddable implements Serializable{
 	private int postId;
 	
 	public FavouriteEmbeddable() {
-		// TODO Auto-generated constructor stub
+		// do nothing, needed for beans
 	}
 
 	public String getUserId() {

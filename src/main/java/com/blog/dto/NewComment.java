@@ -6,8 +6,7 @@ public class NewComment {
 	private String userId;
 
 	public NewComment() {
-		// TODO Auto-generated constructor stub
-			
+		// do nothing, needed for bean
 	}
 
 	public int getPostId() {
