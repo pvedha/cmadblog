@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import com.blog.api.Exceptions.InvalidCommentException;
 import com.blog.biz.Blog;
@@ -74,10 +75,15 @@ public class GenericController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/newChat")
-	public Response newChat(NewChat chat) throws InvalidCommentException {
+	public Response newChat(NewChat chat) {
 		Blog blog = new Blog();
-		int number = blog.addChat(chat);
-		return Response.ok().entity(Integer.toString(number)).build();
+		try {
+			int number = blog.addChat(chat);
+			return Response.ok().entity(Integer.toString(number)).build();
+		}
+		catch (InvalidCommentException e) {
+			return Response.ok().entity(Status.NOT_MODIFIED).build();
+		}
 	}
 	
 	@POST

@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import com.blog.api.Exceptions.InvalidCommentException;
 import com.blog.api.Exceptions.InvalidSearchKeyException;
@@ -51,21 +52,28 @@ public class PostController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/search/{keys}")
-	public Response search(@PathParam("keys") String keys) throws InvalidSearchKeyException {
+	public Response search(@PathParam("keys") String keys) {
 		Blog blog = new Blog();
-		ArrayList<PostDto> posts = blog.searchPost(keys);
-		return Response.ok().entity(posts).build();
+		try {
+			ArrayList<PostDto> posts = blog.searchPost(keys);
+			return Response.ok().entity(posts).build();
+		} catch (InvalidSearchKeyException e) {
+			return Response.ok().entity(Status.NO_CONTENT).build();
+		}		
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/category/{category}")
-	public Response searchByCategory(@PathParam("category") String category) throws InvalidSearchKeyException {
+	public Response searchByCategory(@PathParam("category") String category) {
 		Blog blog = new Blog();
 		ArrayList<PostDto> posts = new ArrayList<>();
 		try{
 			posts = blog.searchByCategory(category);
-		} catch (Exception e){
+		} catch (InvalidSearchKeyException e) {
+			return Response.ok().entity(Status.NO_CONTENT).build();
+		}
+		catch (Exception e){
 			Logger.log(e.getMessage());
 		}	
 		return Response.ok().entity(posts).build();
@@ -93,10 +101,14 @@ public class PostController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/addComment")
-	public Response addComment(NewComment comment) throws InvalidCommentException {
+	public Response addComment(NewComment comment) {
 		Blog blog = new Blog();
-		int number = blog.addComment(comment);
-		return Response.ok().entity(Integer.toString(number)).build();
+		try {
+			int number = blog.addComment(comment);
+			return Response.ok().entity(Integer.toString(number)).build();
+		} catch (InvalidCommentException e) {
+			return Response.ok().entity(Status.NOT_MODIFIED).build();
+		}
 	}
 	
 }
