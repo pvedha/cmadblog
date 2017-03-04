@@ -9,17 +9,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.blog.dto.AuthenticationDto;
+import com.blog.dto.NewComment;
+import com.blog.dto.NewPost;
 import com.blog.dto.PostDto;
+import com.blog.api.Exceptions.InvalidSearchKeyException;
+import com.blog.api.Exceptions.InvalidCommentException;
 
 
 public class BlogTest {
 	
 	@Mock
-	private BlogInterface toTest;
+	static private BlogInterface toTest;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//toTest = new Blog();
+		toTest = new Blog();
 	}
 
 	@Before
@@ -29,35 +34,84 @@ public class BlogTest {
 
 	@Test
 	public void testBlog() {
-		//Blog initBlog = new Blog();
-		//assertTrue(initBlog != null);
+		Blog initBlog = new Blog();
+		assertTrue(initBlog != null);
 	}
 
 	@Test
 	public void testReadPost() {
-		//ArrayList<PostDto> posts = toTest.readAllPost();
-		//System.out.println(posts.size());
+		
 	}
 
 	@Test
 	public void testReadAllPost() {
-		//fail("Not yet implemented");
+		ArrayList<PostDto> posts = toTest.readAllPost();
+		assertTrue(posts.size() > 0);
 	}
 
-	/*@Test
+	@Test
 	public void testReadLimitedPosts() {
-		//fail("Not yet implemented");
+		ArrayList<PostDto> posts = toTest.readLimitedPosts(0);
+		assertTrue(posts.size() <= 10);
 	}
-
+	
+	@Test
+	public void testUserTokenValidate() {
+			assertTrue(((Blog) toTest).validateToken("hello", new AuthenticationDto("hello", "a", "b").getToken()));		
+	}
+	
+	@Test
+	public void testUserTokenNegValidate() {
+		 assertFalse(((Blog) toTest).validateToken("abc ", "def "));
+	}
+	
+	@Test(expected=InvalidSearchKeyException.class) 
+	public void testNullSearch() {
+		toTest.searchPost("");		
+	}
+	
+	@Test(expected=InvalidCommentException.class)
+	public void testNullComment()  {
+		toTest.addComment(new NewComment());
+		
+	}
+	
+		
+	
+	/*@Test Praveen check this case
+	public void testCreatePost() {
+		NewPost newPost = new NewPost();
+		newPost.setUserId("aswin");
+		newPost.setCategory("Politics");
+		newPost.setTitle("Joker elected cm");
+		newPost.setTag("joker");
+		newPost.setMessage("Crazy people rule the world");
+		int postId = toTest.createPost(newPost);
+		assertTrue(postId != 0);		
+	}
+	//Execute after success of previous test case
+	@Test 
+	public void testSearch() {
+		toTest.searchPost("joker");		
+	}
+	@Test 
+	public void testAddComment() {
+	   NewComment cmt = new NewComment();
+		cmt.setMessage("Helloworld");
+		cmt.setUserId("aswin");
+		cmt.setPostId(1);
+		toTest.addComment(cmt);
+	}
+	
+	
+	*/
+/*
 	@Test
 	public void testGetPostDto() {
 		//fail("Not yet implemented");
 	}
 
-	@Test
-	public void testCreatePostPost() {
-		//fail("Not yet implemented");
-	}
+	
 
 	@Test
 	public void testCreateUser() {
