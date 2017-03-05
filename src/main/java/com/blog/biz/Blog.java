@@ -148,6 +148,11 @@ public class Blog implements BlogInterface {
 	}
 	
 	@Override
+	public boolean deleteUser(UserDto user){
+		return dao.deleteUser(user);
+	}
+	
+	@Override
 	public int addComment(NewComment comment) {
 		if (comment == null || comment.getPostId() == 0 || comment.getMessage() == null
 				|| this.readPost(comment.getPostId()) == null) {

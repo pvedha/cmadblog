@@ -92,6 +92,22 @@ public class OracleDAOImpl implements DAO {
 		em.close();
 		return false;
 	}
+	
+	@Override
+	public boolean deleteUser(UserDto user){
+		EntityManager em = factory.createEntityManager();
+		em.getTransaction().begin();
+		BlogUser blogUser = em.find(BlogUser.class, user.getUserId());
+		if(user.getPassword().contentEquals(blogUser.getPassword())){
+			em.remove(blogUser);
+			em.getTransaction().commit();
+			em.close();
+			return true;		
+		}else{
+			em.close();
+			return false;
+		}
+	}
 
 	@Override // We need either update/add comment
 	public void update(Post post) {

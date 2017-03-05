@@ -36,6 +36,7 @@ public interface DAO {
 	BlogUser validateLogin(String userId, String password);
 	BlogUser getUser(String userId);
 	boolean updateUser(UserDto user);
+	boolean deleteUser(UserDto user);
 	
 		
 	//generic
