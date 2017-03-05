@@ -1,0 +1,37 @@
+ssh -i praveen.pem ec2-user@ec2-35-164-175-65.us-west-2.compute.amazonaws.com
+
+For new instances to install httpd: (curl command to verify the http up and running, shows the html contents. Later go to the public ip of the instance in the browser)
+	sudo yum update
+	sudo yum install httpd
+	sudo service httpd start
+	curl localhost
+	
+sudo su
+cd /var/www/html
+vi index.html and vi health.html and add some html contents.  (example below)
+
+
+Example index.html
+<html>
+<body>
+<h1>Hello world, I am webserver 3</h1>
+Public DNS: ec2-52-38-151-215.us-west-2.compute.amazonaws.com
+</body></html>
+
+Attaching disk space:
+	sudo su
+	lsblk (to view the disk and mounts)
+
+	file -s /dev/xvdf
+	mkfs -t ext4 /dev/xvdf
+	mkdir /appdata
+	mount /dev/xvdf /appdata
+	ls -al /appdata
+
+	for upgrade steps:
+	umount /dev/xvdf 	
+	
+Create/Register AMI, create snapshot for disks and application/instance. 
+	
+There is no happy endings in life, actually there are no endings. If one sh!t gets over, another one will take its place
+ and sh!t continues....

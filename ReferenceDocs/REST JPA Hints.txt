@@ -1,0 +1,18 @@
+REST Hints
+
+Best practices:
+Exception mapper
+ETIOS??? Hypermedia something? https://en.wikipedia.org/wiki/HATEOAS
+
+Encrypt the contents
+
+
+questions?
+SQLGrammarException
+Inserting into User object first
+Test case for odbc possible?
+
+Mockito & PowerMock
+
+
+Bidirectional relationship - ownership is update. 

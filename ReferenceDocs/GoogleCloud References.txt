@@ -1,0 +1,51 @@
+create instance then ssh to that.
+
+sudo 
+sudo apt-get install apache2
+curl localhost
+
+sudo apt-get install tomcat8
+
+
+sudo su
+
+cd /var/lib/tomcat8/webapps
+
+gsutil cp gs://<NAME>/HellowWorld.war .
+
+gsutil cp gs://cmadbucket/blog.war .
+
+
+do another machine, install tomcat and java
+/opt
+
+
+windows instance password #AbP3#>sO:aU/t2
+
+
+Docker instance
+
+sudo apt-get install procps
+sudo apt-get install xz-utils
+sudo apt-get install libapparmor1
+sudo apt-get install aufs-tools
+sudo apt-get install ca-certificates
+sudo apt-get install libltdl7
+
+docker pull tomcat:jre8
+
+root@docker:/opt# docker run -v /opt/myapp:/hostdir -d -p 80:8080 -i tomcat:jre8
+cf6394f85a0e9f1ea8051981f2f648708014c5eeeaed6102443661e069cd402b
+
+create image:
+docker commit -m "Blog app local connection" -a "pvedha" cf6394f85a0e mytomcat-v1
+
+docker commit -m "Blog app initialized env" -a "pvedha" 17c407dfea34  tomcat-blog-v1
+
+docker save IMAGEID > img.tar
+
+docker load < img.tar
+
+docker rmi -f image_ID
+
+sudo ls -al /var/lib/docker/aufs/layers

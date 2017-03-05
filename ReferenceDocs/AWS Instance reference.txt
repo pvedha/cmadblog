@@ -1,0 +1,3 @@
+Hints:
+enable 80 port in security settings and attach that to the instance. 
+

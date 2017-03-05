@@ -1,0 +1,29 @@
+Spring
+	Dependency Injection
+	Inversion of Control
+	
+Java provides APIs (interfaces) Ex: JDBC, JAX (Java XML)
+Any party can provide implementation Ex: Oracle JDBC, Hibernate (based on JPA API)
+
+Architecture: Provides a holistic representation of the proposed solution.
+	monolithic, modular, 
+	Layered
+		MVC: UI - Business layer
+		DAO: Business layer - Persistence (Database)
+	Client server
+	Distributed architecture
+	Service oriented architecture.
+	Micro service architecture - Slices of business logic in the name of different services
+	Context Aware application - example mobile applications
+	
+	
+Business Class: Does some logic of processing data. It must have an interface. 
+Domain class: Only getters/setters no processing. Ex: Book
+Rules of Architecture:
+	Reusable, 
+		Interfaces for Business class. Declare only against interface. Ex: InterfaceClass iC = new ImplClass()
+	
+Use cases -> System -> InterfaceClass
+Avoid returning control / domain data. Instead of returning boolean, cover the cases in Exception. Always throw an exception. 
+Create a Package that contains the interface, domain class, implementation class - is the API. 
+

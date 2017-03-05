@@ -1,0 +1,7 @@
+Mongo Hints
+
+db-schema / tables /records/columns
+database / collection / Documents 
+
+by default creates id:
+

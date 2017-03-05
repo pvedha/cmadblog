@@ -1,0 +1,2 @@
+Oracle Instance created with schema cmad, cmad/cmadcmad
+sqlplus cmad/cmadcmad@cmad.cbxi21uehmd8.us-west-2.rds.amazonaws.com:1521/ORCL

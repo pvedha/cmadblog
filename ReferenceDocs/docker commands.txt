@@ -1,0 +1,62 @@
+docker run -idt -P jenkins:2.32.1-alpine
+
+to run/download and run the jenkins app
+
+docker images
+
+docker pull ubuntu:latest
+
+docker run -it ubuntu:latest bash
+
+docker-machine start default
+
+
+Jenkins Remote build
+http://192.168.99.100:32769/job/HelloAllJob/build/?token=summa&cause=just_like_that
+
+https://github.com/schoolofdevops/learn-jenkins
+
+check jenkins container
+
+
+to get inside a docker container
+docker exec -it fervent_pare bash
+
+docker run -idt --name artifactory -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss
+
+docker cp ojdbc14.jar fervent_pare:/usr/lib8081 doc
+
+Connecting to one docker machine
+docker-machine env dockername
+	now execute the eval command as part of the previous output. 
+	docker-machine ls would show whether * actively connected. 
+	
+	
+Sonarqube install as a separate container. admin/admin. 
+Login to sonarqube and administration security -> users. Create token. 
+Go to jenkins -> manage j -> configure system -> configure sonarqube fill in the details.
+
+docker run -idt --name tomcat -v pathTotomcat-users.xml:/usr/local/tomcat-users.xml tomcat
+
+docker cp tomcat-users.xml tomcat:/usr/local/tomcat/conf
+
+docker run -idt --name artifactory -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss
+docker run -idt --name artifactory -p 82:8081 docker.bintray.io/jfrog/artifactory-oss
+
+docker cp ojdbc14.jar aa59b6f91ff5:/var
+
+
+Plugins installed:
+
+Artifactory plugin
+Sonarqube
+pipeline plugin
+deploy to container plugin
+
+
+configure artifactory under manage-jenkins -> system configuration -> artifactory.
+
+jenkins/configureTools/
+Install jdk, select version and give oracle password. 
+
+libs-release/OJDBC/ojdbc/14/ojdbc-14.pom

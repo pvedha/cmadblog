@@ -1,0 +1,92 @@
+
+pvedha@PVEDHA-WS03 MINGW64 ~
+$ dir
+02216405.stinit
+AppData
+Application\ Data
+appProperties
+Contacts
+Cookies
+Desktop
+Documents
+Downloads
+dwhelper
+Favorites
+GlassFish_Server
+InstallAnywhere
+IntelGraphicsProfiles
+Links
+Local\ Settings
+Music
+My\ Documents
+NetHood
+node_modules
+NTUSER.DAT
+ntuser.dat.LOG1
+ntuser.dat.LOG2
+NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TM.blf
+NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TMContainer00000000000000000001
+.regtrans-ms
+NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TMContainer00000000000000000002
+.regtrans-ms
+ntuser.ini
+ntuser.pol
+Oracle
+Pictures
+PrintHood
+Recent
+Saved\ Games
+Searches
+SendTo
+Start\ Menu
+Templates
+Videos
+VirtualBox\ VMs
+
+pvedha@PVEDHA-WS03 MINGW64 ~
+$ cd d:
+
+pvedha@PVEDHA-WS03 MINGW64 /d
+$ cd CMAD
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ dir
+CMAD\ Essentials\ Schedule.docx  praveen.pem
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ chmod 0400 praveen.pem
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ ssh -i praveen.pem ec2-35-164-175-65.us-west-2.compute.amazonaws.com
+The authenticity of host 'ec2-35-164-175-65.us-west-2.compute.amazonaws.com (35.
+164.175.65)' can't be established.
+ECDSA key fingerprint is SHA256:U1U02NBDA2YtstuBnAs/8A6aeR3Md3oa0PJmrioDw5o.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-35-164-175-65.us-west-2.compute.amazonaws.com,35
+.164.175.65' (ECDSA) to the list of known hosts.
+Permission denied (publickey).
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ chmod 04000 praveen.pem
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ dir
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ chmod 0400 praveen.pem
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ dir
+
+pvedha@PVEDHA-WS03 MINGW64 /d/CMAD
+$ ssh -i praveen.pem ec2-user@ec2-35-164-175-65.us-west-2.compute.amazonaws.com
+
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/
+6 package(s) needed for security, out of 11 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-12-153 ~]$
