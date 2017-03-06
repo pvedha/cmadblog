@@ -12,7 +12,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import com.blog.api.Exceptions.BlogException;
 import com.blog.api.Exceptions.InvalidCommentException;
+import com.blog.api.Exceptions.InvalidUserException;
 import com.blog.biz.Blog;
 import com.blog.dto.ChatsDto;
 import com.blog.dto.NewChat;
@@ -24,6 +26,21 @@ public class GenericController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/version")
 	public Response getVersion() {
+		return Response.ok().entity("3.1").build();
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/exp/{no}")
+	public Response getVersionException(@PathParam("no") int val) {
+		switch (val){
+		case 1:
+			System.out.println("case 1");
+			throw new BlogException("BlogException");
+		case 2:
+			System.out.println("InvalidUserException");
+			throw new InvalidUserException("Invalid user man");
+		}
 		return Response.ok().entity("2.1").build();
 	}
 	
