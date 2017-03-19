@@ -278,6 +278,13 @@ function readLimitedPosts() {
     })
 }
 
+
+function stopLoadingMore() {
+    loadMoreContents = false;
+    $('#loading-more').hide();
+    $('#thats-all').show();
+}
+
 function searchByCategory(category) {
     $("#post-info").html("Please wait, loading posts...");
     $("#post-info").css({
@@ -296,6 +303,7 @@ function searchByCategory(category) {
             $("#posts-heading").html("Latests posts, Category : " + category);
             showPostsView();
             displayPosts(response);
+            stopLoadingMore();
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -304,6 +312,7 @@ function searchByCategory(category) {
             //$("#post-info").html(
             //"Posts not available for category : " + category);
             showPostsView();
+            stopLoadingMore();
             // $("#login-message").css({ 'color': 'green', 'font-size':
             // '100%' });
         }
@@ -336,11 +345,13 @@ function searchAllPosts(searchString) {
                 'color': 'green',
                 'font-size': '100%'
             });
+            stopLoadingMore();
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             $("#post-info").html("No results found");
             showPostsView();
+            stopLoadingMore();
             //$("#login-message").css({ 'color': 'green', 'font-size': '100%' });
         }
     })

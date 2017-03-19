@@ -26,7 +26,7 @@ public class GenericController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/version")
 	public Response getVersion() {
-		return Response.ok().entity("3.1").build();
+		return Response.ok().entity("3.2").build();
 	}
 
 	@GET
