@@ -39,11 +39,11 @@ Chat.connect = (function (host) {
 
 Chat.initialize = function () {
     if (window.location.protocol == 'http:') {
-        Chat.connect('ws://' + window.location.host + '/examples/websocket/chat');
+        Chat.connect('ws://' + window.location.host + '/blog');
         //Chat.name="meow";
         //Chat.initialize.name="meow";
     } else {
-        Chat.connect('wss://' + window.location.host + '/examples/websocket/chat');
+        Chat.connect('wss://' + window.location.host + '/blog');
     }
 };
 

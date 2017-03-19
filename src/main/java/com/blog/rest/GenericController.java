@@ -28,12 +28,12 @@ public class GenericController {
 	public Response getVersion() {
 		return Response.ok().entity("3.1").build();
 	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/exp/{no}")
 	public Response getVersionException(@PathParam("no") int val) {
-		switch (val){
+		switch (val) {
 		case 1:
 			System.out.println("case 1");
 			throw new BlogException("BlogException");
@@ -43,7 +43,7 @@ public class GenericController {
 		}
 		return Response.ok().entity("2.1").build();
 	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/category")
@@ -52,7 +52,7 @@ public class GenericController {
 		ArrayList<String> categories = blog.readCategory();
 		return Response.ok().entity(categories).build();
 	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/favourite/{userId}")
@@ -61,7 +61,7 @@ public class GenericController {
 		ArrayList<Integer> favourites = blog.readFavourites(userId);
 		return Response.ok().entity(favourites).build();
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/favourite/add/{userId}/{postId}")
@@ -70,7 +70,7 @@ public class GenericController {
 		boolean result = blog.addFavourite(userId, postId);
 		return Response.ok().entity(Boolean.toString(result)).build();
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/favourite/remove/{userId}/{postId}")
@@ -79,30 +79,27 @@ public class GenericController {
 		boolean result = blog.removeFavourite(userId, postId);
 		return Response.ok().entity(Boolean.toString(result)).build();
 	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/getChats")	
-	public Response getChats() {		
+	@Path("/getChats")
+	public Response getChats() {
 		Blog blog = new Blog();
 		ArrayList<ChatsDto> posts = blog.readRecentChats();
 		return Response.ok().entity(posts).build();
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/newChat")
 	public Response newChat(NewChat chat) {
 		Blog blog = new Blog();
-		try {
-			int number = blog.addChat(chat);
-			return Response.ok().entity(Integer.toString(number)).build();
-		}
-		catch (InvalidCommentException e) {
-			return Response.ok().entity(Status.NOT_MODIFIED).build();
-		}
+
+		int number = blog.addChat(chat);
+		return Response.ok().entity(Integer.toString(number)).build();
+
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/initDB")
