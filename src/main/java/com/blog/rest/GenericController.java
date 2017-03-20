@@ -43,7 +43,7 @@ public class GenericController {
 			default:
 				
 		}
-		return Response.ok().entity("2.1").build();
+		return Response.ok().entity("4.1").build();
 	}
 
 	@GET
