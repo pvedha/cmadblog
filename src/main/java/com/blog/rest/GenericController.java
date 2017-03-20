@@ -40,6 +40,8 @@ public class GenericController {
 		case 2:
 			System.out.println("InvalidUserException");
 			throw new InvalidUserException("Invalid user man");
+			default:
+				
 		}
 		return Response.ok().entity("2.1").build();
 	}

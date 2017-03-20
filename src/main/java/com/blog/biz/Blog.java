@@ -59,7 +59,7 @@ public class Blog implements BlogInterface {
 			ArrayList<Comments> comments = dao.readComments(getPostIds(posts));
 			return getPostDto(posts, comments);
 		} catch (Exception e) {
-			return null;
+			return new ArrayList<PostDto>();
 		}
 		
 	}

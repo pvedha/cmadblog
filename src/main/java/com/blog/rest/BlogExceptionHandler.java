@@ -17,8 +17,6 @@ public class BlogExceptionHandler implements ExceptionMapper<BlogException>
 {
  	@Override
 	public Response toResponse(BlogException e) {
- 		//System.out.println("Blog Exception" + e.getMessage() + ".." + e.getClass());
- 		
  		Response.Status httpStatus = Response.Status.INTERNAL_SERVER_ERROR;
  		
  		if(e instanceof InvalidUserException){
