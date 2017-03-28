@@ -26,7 +26,7 @@ public class GenericController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/version")
 	public Response getVersion() {
-		return Response.ok().entity("3.2").build();
+		return Response.ok().entity("4.2").build();
 	}
 
 	@GET
@@ -40,8 +40,7 @@ public class GenericController {
 		case 2:
 			System.out.println("InvalidUserException");
 			throw new InvalidUserException("Invalid user man");
-			default:
-				
+			default:				
 		}
 		return Response.ok().entity("4.1").build();
 	}
