@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cmad</groupId>
-	<artifactId>blog</artifactId>
+	<artifactId>docmgr</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>cmad Maven Webapp</name>
@@ -16,17 +16,7 @@
 		<jersey.version>2.22.2</jersey.version>
 	</properties>
 	<repositories>
-<!-- 		<repository> -->
-<!-- 	        <releases> -->
-<!-- 	                <enabled>true</enabled> -->
-<!-- 	                <updatePolicy>always</updatePolicy> -->
-<!-- 	                <checksumPolicy>warn</checksumPolicy> -->
-<!-- 	        </releases> -->
-<!-- 	        <id>allanbank</id> -->
-<!-- 	        <name>Allanbank Releases</name> -->
-<!-- 	        <url>http://www.allanbank.com/repo/</url> -->
-<!-- 	        <layout>default</layout> -->
-<!-- 		</repository> -->
+
 	</repositories>
 	<dependencies>
 	<dependency>
@@ -85,6 +75,11 @@
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.1.0</version>
 	</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.oracle</groupId> -->
+<!-- 			<artifactId>ojdbc6</artifactId> -->
+<!-- 			<version>11.2.0</version> -->
+<!-- 		</dependency> -->
 	<dependency>
 		<groupId>org.easymock</groupId>
 		<artifactId>easymock</artifactId>
@@ -94,7 +89,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>blog</finalName>
+		<finalName>docmgr</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

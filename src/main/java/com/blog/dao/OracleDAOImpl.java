@@ -23,7 +23,7 @@ import com.blog.logger.Logger;
 
 @SuppressWarnings("unchecked")
 public class OracleDAOImpl implements DAO {
-	static EntityManagerFactory factory = Persistence.createEntityManagerFactory("blog");
+	static EntityManagerFactory factory = Persistence.createEntityManagerFactory("doc");
 
 	@Override
 	public int initDB() {
